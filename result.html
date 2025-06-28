@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h2>Schemes for {{ user_type }}</h2>
+    {% if schemes %}
+        {% for scheme in schemes %}
+            <div style="margin-bottom: 20px;">
+                <strong>Scheme:</strong> {{ scheme["Scheme"] }}<br>
+                <strong>Ministry:</strong> {{ scheme["Ministry/Department"] }}<br>
+                <strong>Amount (2020-2021):</strong> {{ scheme["Actuals2019"] or "NA" }}<br>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No matching schemes found.</p>
+    {% endif %}
+    <br>
+    <a href="/">Back to Search</a>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Government Scheme Recommender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .spinner-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 class="text-center mb-4">Find Government Schemes</h2>
+      <form method="POST" action="/" onsubmit="showLoading()">
+        <div class="mb-3">
+          <label for="user_type" class="form-label">Who are you?</label>
+          <select class="form-select" name="user_type" id="user_type" required>
+            <option value="">-- Select --</option>
+            <option value="student">Student</option>
+            <option value="farmer">Farmer</option>
+            <option value="entrepreneur">Entrepreneur</option>
+            <option value="woman">Woman</option>
+            <option value="senior">Senior Citizen</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="state" class="form-label">Your State (optional)</label>
+          <input type="text" class="form-control" name="state" id="state" placeholder="e.g. Kerala" />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Find Schemes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="spinner-overlay" id="spinner">
+    <div class="spinner-border text-primary" role="status" style="width: 4rem; height: 4rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <script>
+    function showLoading() {
+      document.getElementById("spinner").style.display = "flex";
+    }
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+</body>
+</html>
